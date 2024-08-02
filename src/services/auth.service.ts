@@ -14,11 +14,11 @@ const createToken = (user: User): TokenData => {
   const expiresIn: number = 60 * 60;
 
   return { expiresIn, token: sign(dataStoredInToken, secretKey, { expiresIn }) };
-}
+};
 
 const createCookie = (tokenData: TokenData): string => {
   return `Authorization=${tokenData.token}; HttpOnly; Max-Age=${tokenData.expiresIn};`;
-}
+};
 
 @Service()
 export class AuthService extends Repository<UserEntity> {

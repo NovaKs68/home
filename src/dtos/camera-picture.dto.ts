@@ -17,5 +17,5 @@ export class CreateCameraPictureDto {
   @IsDate()
   @IsNotEmpty()
   @Type(() => Date)
-  public createdAt: Date;
+  public takedAt: Date;
 }

@@ -18,7 +18,7 @@ services:
     container_name: server
     build:
       context: ./
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password

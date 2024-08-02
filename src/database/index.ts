@@ -1,6 +1,7 @@
 import { join } from 'path';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST, POSTGRES_PORT, POSTGRES_DATABASE } from '@config';
+import { UserSeeder } from '@/database/seeders/user.seeder';
 
 export const dbConnection = async () => {
   const dbConfig: DataSourceOptions = {
@@ -22,5 +23,8 @@ export const dbConnection = async () => {
     },*/
   };
 
-  await new DataSource(dbConfig).initialize();
+  const datasource = new DataSource(dbConfig);
+  await datasource.initialize();
+
+  await new UserSeeder().run();
 };

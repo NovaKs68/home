@@ -7,7 +7,7 @@ export class FileService {
       const fileName = path.basename(tempPath);
       const destinationPath = path.join(destinationDir, fileName);
 
-      fs.rename(tempPath, destinationPath, (err) => {
+      fs.rename(tempPath, destinationPath, err => {
         if (err) {
           return reject(err);
         }
@@ -28,7 +28,7 @@ export class FileService {
       const filePath = path.join(uploadDir, fileName);
 
       // Sauvegarder le fichier
-      fs.writeFile(filePath, buffer, (err) => {
+      fs.writeFile(filePath, buffer, err => {
         if (err) {
           return reject(err);
         }
